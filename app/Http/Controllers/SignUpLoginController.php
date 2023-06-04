@@ -53,4 +53,9 @@ class SignUpLoginController extends Controller
 
         return $this->success("", "Logout with success");
     }
+
+    public function fetchAuthenticatedUser()
+    {
+        return Auth::user();
+    }
 }
