@@ -23,7 +23,7 @@ class SignUpLoginController extends Controller
         }
         $user = User::where("email", $request->email)->first();
         if (!$user) {
-            $this->error("", "User not found", 404);
+            return $this->error("", "User not found", 404);
         }
         return $this->success([
             "user" => $user,
@@ -39,6 +39,7 @@ class SignUpLoginController extends Controller
                 "email" => $request->email,
                 "password" => Hash::make($request->password)
             ]);
+        $user->save();
         return $this->success([
             "user" => $user,
             "token" => $user->createToken("Api Token for: " . $user->name, ['user'])->plainTextToken,

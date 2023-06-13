@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CoursController;
 use App\Http\Controllers\SignUpLoginController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +24,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/register", [SignUpLoginController::class, "register"]);
 Route::post("/login", [SignUpLoginController::class, "login"]);
 Route::post("/logout", [SignUpLoginController::class, "logout"]);
+
+
+
+
+Route::group(["middleware" => ["auth:sanctum"]], function () {
+    Route::resource("/cour", CoursController::class);
+    Route::resource("/videos", VideoController::class);
+});
