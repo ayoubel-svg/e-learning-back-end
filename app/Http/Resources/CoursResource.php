@@ -23,7 +23,9 @@ class CoursResource extends JsonResource
             "Price" => $this->price,
             "language" => $this->language,
             "user_id" => Auth::user()->id,
-            "category" => $this->category
+            "image" => $this->image,
+            "category" => $this->category,
+            "tutor" => $this->user->name
         ];
     }
 }
