@@ -94,4 +94,11 @@ class SignUpLoginController extends Controller
       "token" => $user->createToken("Api Token for: " . $user->name, ['user'])->plainTextToken,
     ]);
   }
+
+  public function updateRole(string $user_email)
+  {
+    $user = User::where('email', $user_email)->first();
+    $user->role = "2";
+    $user->save();
+  }
 }

@@ -18,14 +18,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/register", [SignUpLoginController::class, "register"]);
 Route::post("/login", [SignUpLoginController::class, "login"]);
 Route::post("/logout", [SignUpLoginController::class, "logout"]);
+Route::patch("/update/{user_email}", [SignUpLoginController::class, "update"]);
+Route::patch("/update_role/{user_email}", [SignUpLoginController::class, "updateRole"]);
 
 Route::resource('/tutors', Tutors::class);
 Route::resource('/clients', Clients::class);
 Route::resource("/courses", Courses::class);
 
+// Route::group(["middleware" => ["auth:sanctum"]], function () {
+Route::resource("/cour", CoursController::class);
+Route::resource("/videos", VideoController::class);
+// });
 
 
-Route::group(["middleware" => ["auth:sanctum"]], function () {
-    Route::resource("/cour", CoursController::class);
-    Route::resource("/videos", VideoController::class);
-});
+// Route::group(["middleware" => ["auth:sanctum"]], function () {
+//     Route::resource("/cour", CoursController::class);
+//     Route::resource("/videos", VideoController::class);
+// });
