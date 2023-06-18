@@ -29,3 +29,9 @@ Route::resource("/courses", Courses::class);
 Route::resource("/cour", CoursController::class);
 Route::resource("/videos", VideoController::class);
 // });
+
+
+// Route::group(["middleware" => ["auth:sanctum"]], function () {
+//     Route::resource("/cour", CoursController::class);
+//     Route::resource("/videos", VideoController::class);
+// });

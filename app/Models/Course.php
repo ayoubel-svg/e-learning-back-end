@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Course extends Model
 {
+
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
@@ -19,7 +20,7 @@ class Course extends Model
         "category", 
         "image"
     ];
-
+  
     public function user()
     {
         return $this->belongsTo(User::class);

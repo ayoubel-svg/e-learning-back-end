@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\getCourses;
 use App\Http\Controllers\SignUpLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::post("/register", [SignUpLoginController::class, "register"])->name("auth.register");
+
+Route::get("/getcours", [getCourses::class, "index"]);
