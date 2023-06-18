@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Video extends Model
 {
+
     use HasFactory, SoftDeletes;
 }

@@ -24,7 +24,11 @@ return new class extends Migration
             $table->integer("enrolled")->default(0);
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
+<<<<<<< HEAD
+            // $table->softDeletes();
+=======
             $table->softDeletes();
+>>>>>>> 4d8ad6bf2cefafe93aa4e7674aa245c2b0635100
         });
     }
 

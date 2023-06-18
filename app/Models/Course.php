@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Course extends Model
 {
+
     use HasFactory, SoftDeletes;
-    protected $fillable = ["title", "description", "Duration", "language", "Price", "category", "image"];
+    protected $fillable = ["title", "description", "Duration", "language", "price", "category", "image"];
     public function user()
     {
         return $this->belongsTo(User::class);
