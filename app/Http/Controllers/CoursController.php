@@ -48,6 +48,11 @@ class CoursController extends Controller
         return new CoursResource($cours);
     }
 
+    public function show(string $id)
+    {
+        $cours = Course::find($id);
+        return new CoursResource($cours);
+    }
     /**
      * Update the specified resource in storage.
      */

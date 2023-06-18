@@ -20,12 +20,13 @@ class CoursResource extends JsonResource
             "title" => $this->title,
             "description" => $this->description,
             "Duration" => $this->Duration,
-            "Price" => $this->price,
+            "Price" => $this->Price,
             "language" => $this->language,
             "user_id" => Auth::user()->id,
             "image" => $this->image,
             "category" => $this->category,
-            "tutor" => $this->user->name
+            "tutor" => $this->user->name,
+            "created_at" => $this->created_at
         ];
     }
 }
