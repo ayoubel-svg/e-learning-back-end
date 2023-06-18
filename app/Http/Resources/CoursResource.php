@@ -16,20 +16,17 @@ class CoursResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-<<<<<<< HEAD
-            "id" => $this->id,
-=======
             "id" => (string)$this->id,
->>>>>>> 4d8ad6bf2cefafe93aa4e7674aa245c2b0635100
             "title" => $this->title,
             "description" => $this->description,
             "Duration" => $this->Duration,
-            "Price" => $this->price,
+            "Price" => $this->Price,
             "language" => $this->language,
             "user_id" => Auth::user()->id,
             "image" => $this->image,
             "category" => $this->category,
-            "tutor" => $this->user->name
+            "tutor" => $this->user->name,
+            "created_at" => $this->created_at
         ];
     }
 }
