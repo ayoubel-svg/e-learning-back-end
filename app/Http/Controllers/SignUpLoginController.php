@@ -37,6 +37,7 @@ class SignUpLoginController extends Controller
   public function register(RegisterFormRequest $request)
   {
     $request->validated($request->all());
+    // return response()->json($request);
     $user = User::create([
       "name" => $request->name,
       "email" => $request->email,
@@ -71,7 +72,6 @@ class SignUpLoginController extends Controller
     $validatedData = $request->validate([
       'name' => 'string',
       'email' => 'email|unique:users,email,' . $user->id,
-      "city" => "string",
       "image" => "nullable"
     ]);
 
@@ -93,5 +93,11 @@ class SignUpLoginController extends Controller
       "user" => $user,
       "token" => $user->createToken("Api Token for: " . $user->name, ['user'])->plainTextToken,
     ]);
+  }
+  public function updateRole(string $user_email)
+  {
+    $user = User::where('email', $user_email)->first();
+    $user->role = "2";
+    $user->save();
   }
 }

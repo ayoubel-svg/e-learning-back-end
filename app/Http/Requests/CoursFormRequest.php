@@ -24,14 +24,11 @@ class CoursFormRequest extends FormRequest
         return [
             "title" => "required",
             "category" => "required",
-<<<<<<< HEAD
-=======
-            // "image" => "required",
->>>>>>> 4d8ad6bf2cefafe93aa4e7674aa245c2b0635100
+            "image" => "required",
             "price" => "required",
             "language" => "required",
             "duration" => "required",
-            "description" => "required"
+            "description" => "required|max:5000"
         ];
     }
 }

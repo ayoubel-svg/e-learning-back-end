@@ -26,6 +26,7 @@ class CoursResource extends JsonResource
             "image" => $this->image,
             "category" => $this->category,
             "tutor" => $this->user->name,
+            "enrolled" => $this->enrolled,
             "created_at" => $this->created_at
         ];
     }

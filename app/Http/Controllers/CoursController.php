@@ -45,7 +45,8 @@ class CoursController extends Controller
       $cours->image = $image_name;
     }
     $cours->save();
-    return new CoursResource($cours);
+    // return new CoursResource($cours);
+    return response()->json($request);
   }
 
   /**
